@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+    <form method="POST">
+        <label for="bedrooms">Bedrooms:</label>
+        <input type="number" id="bedrooms" name="bedrooms" required><br>
+
+        <label for="bathrooms">Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" required><br>
+
+        <label for="size_sqft">Size (sqft):</label>
+        <input type="number" id="size_sqft" name="size_sqft" required><br>
+
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+            {% for loc in locations %}
+            <option value="{{ loc }}">{{ loc }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if prediction is not none %}
+    <div id="result">
+        <h2>Predicted House Price: ${{ prediction | round(2) }}</h2>
+    </div>
+    {% endif %}
+    
+    <a href="/new">Go to New Dataset Prediction</a>
+</body>
+</html>
