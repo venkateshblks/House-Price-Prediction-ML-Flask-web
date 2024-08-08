@@ -1,62 +1,234 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>USA Dataset </title>
+    <title>USA House Price Prediction </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: "#da373d",
+                    },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-    <h1>USA Dataset </h1>
-    <form method="POST">
-        <label for="bedrooms">Bedrooms:</label>
-        <input type="number" id="bedrooms" name="bedrooms" required><br>
+<body class="bg-slate-300 min-h-screen flex flex-col justify-center items-center">
+    <h1 class="text-center mb-8 text-3xl font-bold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-5xl">USA🏠 House Price Prediction</h1>
+    
+    <form method="POST" class="bg-white shadow-lg rounded-lg p-8 w-full max-w-xl">
+        <div class="mb-4">
+            <label for="bedrooms" class="block text-gray-700 text-sm font-bold mb-2">Bedrooms:</label>
+            <div class="relative flex items-center max-w-[11rem]">
+    <button type="button" id="decrement-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+        </svg>
+    </button>
+    <input type="number" name="bedrooms" id="bedrooms-input"  class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
+    <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
+        🛏️<span> Bedrooms</span>
+    </div>
+    <button type="button" id="increment-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+        </svg>
+    </button>
+</div>
+        </div>
 
-        <label for="bathrooms">Bathrooms:</label>
-        <input type="number" id="bathrooms" name="bathrooms" required><br>
+        <div class="mb-4">
+            <label for="bathrooms" class="block text-gray-700 text-sm font-bold mb-2">Bathrooms:</label>
+            <div class="relative flex items-center max-w-[11rem]">
+                <button type="button" id="decrement-button1" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                    </svg>
+                </button>
+                <input type="number" name="bathrooms" id="bath-input"  class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
+                <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
 
-        <label for="sqft_living">Sqft Living:</label>
-        <input type="number" id="sqft_living" name="sqft_living" required><br>
+                    🛁<span> Bathrooms</span>
+                </div>
+                <button type="button" id="increment-button1" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-        <label for="sqft_lot">Sqft Lot:</label>
-        <input type="number" id="sqft_lot" name="sqft_lot" required><br>
 
-        <label for="floors">Floors:</label>
-        <input type="number" id="floors" name="floors" required><br>
+        <div class="mb-4">
+            <label for="sqft_living" class="block text-gray-700 text-sm font-bold mb-2">Sqft Living:</label>
+            <input type="number" id="sqft_living" name="sqft_living"  required value="{{ sqft_living }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
-        <label for="waterfront">Waterfront:</label>
-        <input type="number" id="waterfront" name="waterfront" required><br>
+        <div class="mb-4">
+            <label for="sqft_lot" class="block text-gray-700 text-sm font-bold mb-2">Sqft Lot:</label>
+            <input type="number" id="sqft_lot" name="sqft_lot"  required value="{{ sqft_lot }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
-        <label for="view">View:</label>
-        <input type="number" id="view" name="view" required><br>
+        <!-- <div class="mb-4">
+            <label for="floors" class="block text-gray-700 text-sm font-bold mb-2">Floors:</label>
+            <input type="number" id="floors" name="floors"  required value="{{ floors }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div> -->
 
-        <label for="condition">Condition:</label>
-        <input type="number" id="condition" name="condition" required><br>
+        <div class="mb-4">
+            <label for="bathrooms" class="block text-gray-700 text-sm font-bold mb-2">Floors:</label>
+            <div class="relative flex items-center max-w-[11rem]">
+                <button type="button" id="decrement-button2" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                    </svg>
+                </button>
+                <input type="number" name="floors" id="floor-input"  class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
+                <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
 
-        <label for="sqft_above">Sqft Above:</label>
-        <input type="number" id="sqft_above" name="sqft_above" required><br>
+                    🏢<span> Floors </span>
+                </div>
+                <button type="button" id="increment-button2" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-        <label for="sqft_basement">Sqft Basement:</label>
-        <input type="number" id="sqft_basement" name="sqft_basement" required><br>
 
-        <label for="yr_built">Year Built:</label>
-        <input type="number" id="yr_built" name="yr_built" required><br>
 
-        <label for="yr_renovated">Year Renovated:</label>
-        <input type="number" id="yr_renovated" name="yr_renovated" required><br>
+        <div class="mb-4">
+            <label for="waterfront" class="block text-gray-700 text-sm font-bold mb-2">Waterfront:</label>
+            <input type="number" id="waterfront" name="waterfront"  required value="{{ waterfront }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required><br>
+        <div class="mb-4">
+            <label for="view" class="block text-gray-700 text-sm font-bold mb-2">View:</label>
+            <input type="number" id="view" name="view"  required value="{{ view }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
-        <label for="statezip">State/Zip:</label>
-        <input type="number" id="statezip" name="statezip" required><br>
+        <div class="mb-4">
+            <label for="condition" class="block text-gray-700 text-sm font-bold mb-2">Condition:</label>
+            <input type="number" id="condition" name="condition"  required value="{{ condition }}"  required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
 
-        <button type="submit">Predict</button>
+        <div class="mb-4">
+            <label for="sqft_above" class="block text-gray-700 text-sm font-bold mb-2">Sqft Above:</label>
+            <input type="number" id="sqft_above" name="sqft_above"  required value="{{ sqft_above }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="sqft_basement" class="block text-gray-700 text-sm font-bold mb-2">Sqft Basement:</label>
+            <input type="number" id="sqft_basement" name="sqft_basement"  required value="{{ sqft_basement }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="yr_built" class="block text-gray-700 text-sm font-bold mb-2">Year Built:</label>
+            <input type="number" id="yr_built" name="yr_built"   required value="{{ yr_built }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="yr_renovated" class="block text-gray-700 text-sm font-bold mb-2">Year Renovated:</label>
+            <input type="number" id="yr_renovated" name="yr_renovated"  required value="{{ yr_renovated }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="mb-4">
+            <label for="city" class="block text-gray-700 text-sm font-bold mb-2">City:</label>
+            <input type="text" id="city" name="city"   required value="{{ city }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div class="mb-6">
+            <label for="statezip" class="block text-gray-700 text-sm font-bold mb-2">State/Zip:</label>
+            <input type="number" id="statezip" name="statezip"  required value="{{ statezip }}" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Predict
+        </button>
     </form>
 
     {% if prediction is not none %}
-    <div id="result">
-        <h2>Predicted Price: ${{ prediction | round(2) }}</h2>
+    <div id="result" class="mt-8 text-center">
+        <h2 class="text-2xl font-semibold text-gray-800">Predicted Price: ${{ prediction | round(2) }}</h2>
     </div>
-    {% endif %}
 
-    <a href="/">bangolore House Price Prediction</a>
+     <!--  -->
+       {% for loc in features %}
+       <p >{{ loc | safe }}</p>
+       {% endfor %}
+    {% endif %}
+    <br><br>
+    <a href="/"   <button type="button"  class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Bengaluru House Price Prediction</button>
+    </a>
+
+
+
+    <!--  -->
+    <script>
+    const incrementButton = document.getElementById('increment-button');
+    const decrementButton = document.getElementById('decrement-button');
+    const incrementButton1 = document.getElementById('increment-button1');
+    const decrementButton1 = document.getElementById('decrement-button1');
+    const incrementButton2 = document.getElementById('increment-button2');
+    const decrementButton2 = document.getElementById('decrement-button2');
+    const inputField = document.getElementById('bedrooms-input');
+    const inputField1 = document.getElementById('bath-input');
+    const inputField2 = document.getElementById('floor-input');
+
+    const minValue = 1;
+    const maxValue = 50;
+
+
+    incrementButton.addEventListener('click', () => {
+        let currentValue = parseInt(inputField.value);
+        if (currentValue < maxValue) {
+            currentValue += 1;
+            inputField.value = currentValue;
+        }
+    });
+
+    decrementButton.addEventListener('click', () => {
+        let currentValue = parseInt(inputField.value);
+        if (currentValue > minValue) {
+            currentValue -= 1;
+            inputField.value = currentValue;
+        }
+    });
+    incrementButton1.addEventListener('click', () => {
+        let currentValue = parseInt(inputField1.value);
+        if (currentValue < maxValue) {
+            currentValue += 1;
+            inputField1.value = currentValue;
+        }
+    });
+
+    decrementButton1.addEventListener('click', () => {
+        let currentValue = parseInt(inputField1.value);
+        if (currentValue > minValue) {
+            currentValue -= 1;
+            inputField1.value = currentValue;
+        }
+    });
+    incrementButton2.addEventListener('click', () => {
+        let currentValue = parseInt(inputField2.value);
+        if (currentValue < maxValue) {
+            currentValue += 1;
+            inputField2.value = currentValue;
+        }
+    });
+
+    decrementButton2.addEventListener('click', () => {
+        let currentValue = parseInt(inputField2.value);
+        if (currentValue > minValue) {
+            currentValue -= 1;
+            inputField2.value = currentValue;
+        }
+    });
+
+    </script>
 </body>
 </html>
