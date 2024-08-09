@@ -10,10 +10,10 @@ with open('models/house_price_model.pkl', 'rb') as file:
 with open('models/label_encoder.pkl', 'rb') as file:
     house_encoder = pickle.load(file)
 
-with open('models/Usa-house_price.pkl', 'rb') as file:
+with open('models/Usa-price1.pkl', 'rb') as file:
     new_model = pickle.load(file)
 
-with open('models/Usa_label.pkl', 'rb') as file:
+with open('models/Usa_label1.pkl', 'rb') as file:
     Us_encoder = pickle.load(file)
 
 @app.route('/', methods=['GET', 'POST'])
