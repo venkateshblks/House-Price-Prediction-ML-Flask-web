@@ -23,7 +23,7 @@
     
     <form class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md" method="POST"  >
         <div class="mb-4">
-            <label for="bedrooms" class="block text-gray-700 text-sm font-bold mb-2">Bedrooms:</label>
+            <label for="bedrooms" class="block text-gray-700 text-sm font-bold mb-2">Number of Bedrooms:</label>
             <div class="relative flex items-center max-w-[11rem]">
     <button type="button" id="decrement-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
         <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -31,10 +31,7 @@
         </svg>
     </button>
     <input type="number" name="bedrooms" id="bedrooms-input"  class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
-    <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
-        <!-- <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
-        </svg> -->
+
         🛏️<span> Bedrooms</span>
     </div>
     <button type="button" id="increment-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
@@ -46,7 +43,7 @@
         </div>
 
         <div class="mb-4">
-            <label for="bathrooms" class="block text-gray-700 text-sm font-bold mb-2">Bathrooms:</label>
+            <label for="bathrooms" class="block text-gray-700 text-sm font-bold mb-2">Number of Bathrooms:</label>
             <div class="relative flex items-center max-w-[11rem]">
                 <button type="button" id="decrement-button1" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
                     <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
@@ -55,9 +52,7 @@
                 </button>
                 <input type="number" name="bathrooms" id="bath-input"  class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
                 <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
-                    <!-- <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
-                    </svg> -->
+                 
                     🛁<span> Bathrooms</span>
                 </div>
                 <button type="button" id="increment-button1" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
@@ -69,20 +64,10 @@
         </div>
 
         <div class="mb-4">
-            <label for="size_sqft" class="block text-gray-700 text-sm font-bold mb-2">Size (sqft):</label>
+            <label for="size_sqft" class="block text-gray-700 text-sm font-bold mb-2">Total Size (Sqft):</label>
             <input type="number" id="size_sqft" name="size_sqft"  required value="{{ request.form.get('size_sqft', '') }}"  required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
 
-        <!-- <div class="mb-6">
-            <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location:</label>
-            <select id="location" name="location"    required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500">
-                {% for loc in locations %}
-                <option value="{{ loc }}" {% if loc == 'Anekal' %}selected{% endif %}>{{ loc }}</option>
-                {% endfor %}
-            </select>
-        </div> -->
-       
-<!-- ------------ -->
 <div class="relative inline-block w-full">
     <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location: <sup>(Default:Ambedkar Nagar)</sup></label>
     <button id="dropdown-button" type="button" class="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-md shadow-sm flex justify-between items-center focus:outline-none">
@@ -103,33 +88,6 @@
 </div>
  
 <br><br>
-<!--  -->
-<!-- <label for="bedrooms-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bedrooms:</label>
-<div class="relative flex items-center max-w-[11rem]">
-    <button type="button" id="decrement-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
-        </svg>
-    </button>
-    <input type="number" name="bedrooms" id="bedrooms-input" aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 font-medium text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pb-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="2" required />
-    <div class="absolute bottom-1 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 flex items-center text-xs text-gray-400 space-x-1 rtl:space-x-reverse">
-        <svg class="w-2.5 h-2.5 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
-        </svg>
-        <span>Bedrooms</span>
-    </div>
-    <button type="button" id="increment-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-        <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-        </svg>
-    </button>
-</div>
-<p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Please select the number of bedrooms.</p> -->
-
-<!-- JavaScript -->
-
-
-    <!--  -->
 
 <button type="submit" id="submit-button" class="w-full text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-bold rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">
     Predict
@@ -198,7 +156,6 @@
         }
     });
 
-    // JavaScript to toggle the dropdown
     const dropdownButton = document.getElementById('dropdown-button');
     const dropdownMenu = document.getElementById('dropdown-menu');
     const searchInput = document.getElementById('search-input');
@@ -206,18 +163,15 @@
     const hiddenLocationInput = document.getElementById('hidden-location-input');
     let isOpen = false; 
 
-    // Function to toggle the dropdown state
     function toggleDropdown() {
         isOpen = !isOpen;
         dropdownMenu.classList.toggle('hidden', !isOpen);
     }
 
-    // Toggle dropdown on button click
     dropdownButton.addEventListener('click', () => {
         toggleDropdown();
     });
 
-    // Add event listener to filter items based on input
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.toLowerCase();
         const items = dropdownMenu.querySelectorAll('a');
@@ -228,14 +182,13 @@
         });
     });
 
-    // Add event listeners to each dropdown item
     dropdownMenu.querySelectorAll('a').forEach((item) => {
         item.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default link behavior
+            event.preventDefault(); 
             const selectedValue = item.getAttribute('data-value');
             selectedLocation.textContent = selectedValue;
             hiddenLocationInput.value = selectedValue;
-            toggleDropdown(); // Close the dropdown after selection
+            toggleDropdown(); 
         });
     });
 
