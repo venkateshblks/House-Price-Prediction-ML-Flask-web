@@ -147,8 +147,8 @@ The models used for prediction were implemented as follows:
      -  Saved model and label encoder:  `label_enocoder.pkl` `house_price_model.pkl`.
        
    - **USA House Price Prediction:** 
-     - Implemented using Linear Regression with `scikit-learn` library.
-     -  Saved model and label encoder:  `Usa_label_enocoder.pkl` `Usa_house_price.pkl`.
+     -  Implemented using XGBRegressor with `xgboost` library.
+     -  Saved model and label encoder:  `Usa_label1.pkl` `Usa_price1.pkl`.
      
 
 
