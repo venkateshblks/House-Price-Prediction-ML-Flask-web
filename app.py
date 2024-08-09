@@ -29,7 +29,7 @@ def home():
         
         location_encoded = house_encoder.transform([location])[0]
         features = [[bedrooms, bathrooms, size_sqft, location_encoded]]
-        prediction = house_model.predict(features)[0]
+        prediction = round(house_model.predict(features)[0],2)
         return render_template('index.html',features=features, locations=locations, prediction=prediction)
 
 
@@ -59,7 +59,7 @@ def new():
 
         city_encoded = Us_encoder.transform([city])[0]
         features = [[bedrooms, bathrooms, sqft_living, sqft_lot, floors, waterfront, view, condition, sqft_above, sqft_basement, yr_built, yr_renovated, city_encoded, statezip]]
-        prediction = new_model.predict(features)[0]
+        prediction = round(new_model.predict(features)[0],2)
         return render_template('usa.html',locs=us_loc,features=features, bedrooms=bedrooms, bathrooms=bathrooms, sqft_living=sqft_living, sqft_lot=sqft_lot, floors=floors, waterfront=waterfront, view=view, condition=condition, sqft_above=sqft_above, sqft_basement=sqft_basement, yr_built=yr_built,  yr_renovated=yr_renovated, city=city, statezip=statezip, prediction=prediction)
     else:
         return render_template('usa.html', locs=us_loc,prediction=prediction)
